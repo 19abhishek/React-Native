@@ -1,10 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { useState } from "react";
+import { StyleSheet, Text, View, Button } from "react-native";
 
 export default function App() {
+  const [text, setText] = useState("First App");
+
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <Text style={styles.btn}>{text}</Text>
+      <Button title="Button" onPress={() => setText("Button Clicked")} />
       <StatusBar style="auto" />
     </View>
   );
@@ -13,8 +17,15 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#aaa",
+    alignItems: "center",
+
+    justifyContent: "center",
+  },
+  btn: {
+    borderColor: "red",
+    borderWidth: 2,
+    padding: 4,
+    color: "black",
   },
 });
